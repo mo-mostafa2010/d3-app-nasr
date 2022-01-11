@@ -28,7 +28,7 @@
         <v-container> 
                  <plotly
           v-if="plot"
-          :data="data"
+          :data="data2"
           :layout="layout"
           :displayModeBar="false"
         />
@@ -97,7 +97,7 @@ export default {
         .post("http://localhost:105/form-example", formData)
         .then((response) => {
           this.data[0].z = response.data;
-          console.log(this.data);
+          this.changeSelect()
           this.plot = true;
         });
     },
