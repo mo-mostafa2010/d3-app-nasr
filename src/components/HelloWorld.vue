@@ -11,7 +11,7 @@
     <v-row>
       <v-col cols="6">
         <v-container>
-          <v-img height="300" :src="url"></v-img>
+          <img height="300" v-bind:src="`${url}`">
         </v-container>
       </v-col>
       <v-col cols="6">
@@ -62,11 +62,19 @@ export default {
         autorange: "reversed",
       },
     ],
+    data2: [
+      {
+        z: [],
+        type: "contour",
+        autorange: "reversed",
+      },
+    ],
     layout: {
       title: "My graph",
       yaxis: { autorange: "reversed" },
     },
-    imagge: null,
+    imagge: null,  
+    imagge2: null,  
     url: null,
   }),
   computed: {
@@ -100,8 +108,8 @@ export default {
       formData.append("item", this.selected);
       axios
         .post("http://localhost:105/change", formData)
-        .then(() => {
-          this.plot = true;
+        .then((response) => {
+          this.data2[0].z = response.data;
         });
     },
   },
