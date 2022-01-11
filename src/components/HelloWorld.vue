@@ -104,6 +104,7 @@ export default {
     },
     changeSelect() {
       this.plot2 = false;
+      let self = this
        this.url = URL.createObjectURL(this.imagge);
       let formData = new FormData();
       formData.append("image", this.imagge);
@@ -111,9 +112,9 @@ export default {
       axios
         .post("http://localhost:105/change", formData)
         .then((response) => {
-          this.data2[0].z = response.data;
-          console.log('data', this.data);
-          console.log('data', this.data2);
+          self.data2[0].z = response.data;
+          console.log('data', self.data);
+          console.log('data', self.data2);
           this.plot2 = true;
         }).finally((res) => {
           console.log(res);
