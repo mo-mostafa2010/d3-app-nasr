@@ -115,6 +115,8 @@ export default {
           console.log('data', this.data);
           console.log('data', this.data2);
           this.plot2 = true;
+        }).finally((res) => {
+          console.log(res);
         });
     },
   },
