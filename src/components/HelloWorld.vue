@@ -26,9 +26,9 @@
     <v-row>
       <v-col cols="6">
         <v-container> 
-                 <plotly
-          v-if="plot2"
-          :data="data2"
+                  <plotly
+          v-if="plot"
+          :data="data"
           :layout="layout"
           :displayModeBar="false"
         />
@@ -36,6 +36,12 @@
       </v-col>
       <v-col cols="6">
         <v-col class="d-flex" cols="12" sm="6">
+                        <plotly
+          v-if="plot2"
+          :data="data2"
+          :layout="layout"
+          :displayModeBar="false"
+        />
           <v-select  v-if="plot" v-model="selected" :items="itemss" @change="changeSelect()" label="Select type"></v-select>
         </v-col>
       </v-col>
