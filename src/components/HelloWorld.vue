@@ -53,6 +53,7 @@ export default {
   },
   data: () => ({
     plot: false,
+    plot2: false,
     items: ['background', 'cap','ring', 'stipe', 'gills', 'volva', 'mycelium'], 
     selected: 0,
     data: [
@@ -102,6 +103,7 @@ export default {
         });
     },
     changeSelect() {
+      this.plot2 = false;
        this.url = URL.createObjectURL(this.imagge);
       let formData = new FormData();
       formData.append("image", this.imagge);
@@ -110,6 +112,7 @@ export default {
         .post("http://localhost:105/change", formData)
         .then((response) => {
           this.data2[0].z = response.data;
+          this.plot2 = true;
         });
     },
   },
